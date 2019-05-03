@@ -6,8 +6,10 @@ import router from './router/index.js'
 import VueResource from 'vue-resource'
 import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import './assets/css/main.css'
+import './assets/css/main.css' 
+import VuePreview from 'vue2-preview'
 
+Vue.use(VuePreview)
 Vue.use(ElementUi);
 Vue.use(VueResource);
 

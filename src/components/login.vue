@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<!-- 登录表单 -->
-		<el-form :model="login" status-icon :rules="rule" ref="login">
+		<el-form :model="login" status-icon :rules="rule" ref="login" class="box">
 			<el-form-item prop="username">
 				<el-input prefix-icon="el-icon-ump-yonghu" v-model="login.username" auto-complete="off" />
 			</el-form-item>
@@ -91,5 +91,20 @@
 </script>
 
 <style>
-
+  .div{
+	  border:3px solid blue; 
+  }
+  *{
+	  margin: 0;
+  }
+  .el-form{
+	  height: 400px;
+	  width: 600px;
+	  position: abosolute;
+	  left: 50%;
+	  top: 50%;
+	  border:1px solid red;
+	  background: lightgoldenrodyellow;
+  }
+  
 </style>
