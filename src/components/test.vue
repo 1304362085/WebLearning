@@ -16,13 +16,13 @@
     </div>
     <div id="showZone">
       <div v-html="products"></div>
+      <div ref = 'show'  class="products"></div>
       <div class="card">
         <img
           class="card-img-top vue2-preview"
-          @click="$preview.open(index, list)"
           height="150px"
           width="150px"
-          src="../../static/moka.jpg"
+          src="../assets/moka.jpg"
           alt
         >
         <div class="card-body">
@@ -44,6 +44,7 @@ export default {
   },
   methods: {
     getData: function(e) {
+      this.$refs.show.innerHTML = '';
       console.log(e);
       if (e == null || e == "") {
         e = "default";
@@ -56,13 +57,31 @@ export default {
       for (var i = 0, l = json.length; i < l; i++) {
         for (var key in json[i]) {
           console.log(key + ":" + json[i][key]);
+          this.CardCreate(key, json[i][key]);
         }
       }
-    }
+    },
+  CardCreate: function(key, value){
+    var path = '../assets/moka.jpg'
+    var newCard = 
+      '<div class="card">' +
+        '<img' + 
+          'class="card-img-top"' +
+          'height="150px"' +
+          'width="150px"' + 
+          'src='+ path +' ' 
+          'alt' +
+        '>' + 
+        '<div class="card-body">' +
+          '<h4 class="card-title">' + key + '</h4>' +
+          '<p class="card-text">' + value + '</p>'
+
+      this.$refs.show.innerHTML += newCard;
   },
   mounted() {
     this.getData();
   }
+  },
 };
 </script>
 
